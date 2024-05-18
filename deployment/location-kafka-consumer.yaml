@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: location-kafka-consumer
+  name: location-kafka-consumer
+spec:
+  ports:
+  - name: "5005"
+    port: 5005
+    targetPort: 5005
+    nodePort: 500005
+  selector:
+    service: location-kafka-consumer
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: location-kafka-consumer
+  name: location-kafka-consumer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: location-kafka-consumer
+  template:
+    metadata:
+      labels:
+        service: location-kafka-consumer
+    spec:
+      containers:
+      - image: tomiwasalau01/location-kafka-consumer:latest
+        name: location-kafka-consumer
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "64m"
+          limits:
+            memory: "256Mi"
+            cpu: "256m"
+      restartPolicy: Always

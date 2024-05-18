@@ -1,0 +1,7 @@
+We have a grpc client in the web app sending location coordinate to the location service, 
+then the service passess the message to a kafka queue that writes the data to the database
+
+We would maintain the rest framework for both person and connection services,
+ they would get the data from the front end and store in the database. 
+ The person and connection service are going to be combined into a single microservice because they both use rest
+ and connection service is dependent on person service 

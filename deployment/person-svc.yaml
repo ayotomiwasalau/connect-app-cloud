@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: person-svc
+  name: person-svc
+spec:
+  ports:
+  - name: "5001"
+    port: 5001
+    targetPort: 5001
+    nodePort: 50001
+  selector:
+    service: person-svc
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: person-svc
+  name: person-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: person-svc
+  template:
+    metadata:
+      labels:
+        service: person-svc
+    spec:
+      containers:
+      - image: tomiwasalau01/person-svc:latest
+        name: person-svc
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "64m"
+          limits:
+            memory: "256Mi"
+            cpu: "256m"
+      restartPolicy: Always

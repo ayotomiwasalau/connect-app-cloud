@@ -2,37 +2,37 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    service: udaconnect-app
-  name: udaconnect-app
+    service: location-grpc-producer
+  name: location-grpc-producer
 spec:
   ports:
-  - name: "3000"
-    port: 3000
-    targetPort: 3000
-    nodePort: 30000
+  - name: "5005"
+    port: 5005
+    targetPort: 5005
+    nodePort: 500005
   selector:
-    service: udaconnect-app
+    service: location-grpc-producer
   type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: udaconnect-app
-  name: udaconnect-app
+    service: location-grpc-producer
+  name: location-grpc-producer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: udaconnect-app
+      service: location-grpc-producer
   template:
     metadata:
       labels:
-        service: udaconnect-app
+        service: location-grpc-producer
     spec:
       containers:
-      - image: udacity/nd064-udaconnect-app:latest
-        name: udaconnect-app
+      - image: tomiwasalau01/location-grpc-producer:latest
+        name: location-grpc-producer
         imagePullPolicy: Always
         resources:
           requests:
