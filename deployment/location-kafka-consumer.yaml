@@ -6,10 +6,10 @@ metadata:
   name: location-kafka-consumer
 spec:
   ports:
-  - name: "5005"
-    port: 5005
-    targetPort: 5005
-    nodePort: 500005
+  - name: "5006"
+    port: 5006
+    targetPort: 5006
+    nodePort: 30006
   selector:
     service: location-kafka-consumer
   type: NodePort
