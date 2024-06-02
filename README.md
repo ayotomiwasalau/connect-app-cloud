@@ -150,3 +150,9 @@ Your architecture diagram should focus on the services and how they talk to one 
 ## Tips
 * We can access a running Docker container using `kubectl exec -it <pod_id> sh`. From there, we can `curl` an endpoint to debug network issues.
 * The starter project uses Python Flask. Flask doesn't work well with `asyncio` out-of-the-box. Consider using `multiprocessing` to create threads for asynchronous behavior in a standard Flask application.
+
+## Ref commands
+docker build --platform="linux/amd64" -t tomiwasalau01/frontend:latest .
+docker build --platform="linux/amd64" -t tomiwasalau01/person-svc:latest .
+docker build --platform linux/amd64 -t tomiwasalau01/connection-svc:latest .
+ docker build --platform="linux/amd64" -t tomiwasalau01/connection-svc:latest .

@@ -13,7 +13,5 @@ COPY . ./
 
 EXPOSE 3000
 
-RUN export NODE_OPTIONS=--openssl-legacy-provider
-
 CMD ["npm", "start"]
 

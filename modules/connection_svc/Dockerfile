@@ -2,7 +2,9 @@ FROM python:3.10-alpine
 
 WORKDIR .
 
-RUN apk add --no-cache gcc musl-dev linux-headers geos libc-dev postgresql-dev
+RUN apk update
+
+RUN apk add --no-cache gcc musl-dev linux-headers libc-dev geos postgresql-dev
 
 COPY requirements.txt requirements.txt
 
