@@ -3,12 +3,13 @@ import location_pb2
 import location_pb2_grpc
 import time
 import json
+import os
 from kafka import KafkaProducer
 from concurrent import futures
 
 
-TOPIC_NAME = 'location'
-KAFKA_SERVER = 'localhost:9092'
+TOPIC_NAME = os.environ["TOPIC_NAME"]
+KAFKA_SERVER = os.environ["KAFKA_SERVER"]
 producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
 
 class LocationServicer(location_pb2_grpc.LocationServiceServicer):
