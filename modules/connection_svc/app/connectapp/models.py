@@ -7,7 +7,7 @@ from app import db  # noqa
 from geoalchemy2 import Geometry
 from geoalchemy2.shape import to_shape
 from shapely.geometry.point import Point
-from sqlalchemy import BigInteger, Column, DateTime, ForeignKey, Integer, String
+from sqlalchemy import BigInteger, Column, DateTime, ForeignKey, Integer, String, Mapped
 from sqlalchemy.ext.hybrid import hybrid_property
 
 
@@ -27,7 +27,7 @@ class Location(db.Model):
     person_id = Column(Integer, ForeignKey(Person.id), nullable=False)
     coordinate = Column(Geometry("POINT"), nullable=False)
     creation_time = Column(DateTime, nullable=False, default=datetime.utcnow)
-    _wkt_shape: str = None
+    _wkt_shape: Mapped[str] = None
 
     @property
     def wkt_shape(self) -> str:
