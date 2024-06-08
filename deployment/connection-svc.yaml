@@ -33,6 +33,7 @@ spec:
       containers:
       - image: tomiwasalau01/connection-svc:latest
         name: connection-svc
+        env:
         - name: DB_USERNAME
           valueFrom:
             configMapKeyRef:

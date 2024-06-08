@@ -33,6 +33,17 @@ spec:
       containers:
       - image: tomiwasalau01/location-kafka-consumer:latest
         name: location-kafka-consumer
+        env:
+        - name: TOPIC_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: kafka-env
+              key: TOPIC_NAME
+        - name: KAFKA_SERVER
+          valueFrom:
+            configMapKeyRef:
+              name: kafka-env
+              key: KAFKA_SERVER
         - name: DB_USERNAME
           valueFrom:
             configMapKeyRef:
