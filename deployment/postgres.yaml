@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgis/postgis:14-3.4-alpine
+          image: postgis/postgis:12-3.4-alpine
           imagePullPolicy: "IfNotPresent"
           ports:
             - containerPort: 5432

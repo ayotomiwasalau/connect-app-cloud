@@ -168,7 +168,7 @@ metadata:
     service: kafka
   name: kafka
 spec:
-  clusterIP: None
+  type: ClusterIP
   selector:
     service: kafka
   ports:
