@@ -17,7 +17,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: postgres-pv-claim
+  name: postgres-pv-claim-new
   labels:
     app: postgres
 spec:
@@ -78,9 +78,9 @@ spec:
                 name: db-env
                 key: DB_NAME
           volumeMounts:
-            - mountPath: /var/lib/postgresql/data
-              name: postgresdb
+            - mountPath: /var/lib/postgresql/data0
+              name: postgresdbnew
       volumes:
-        - name: postgresdb
+        - name: postgresdbnew
           persistentVolumeClaim:
-            claimName: postgres-pv-claim
+            claimName: postgres-pv-claim-new
