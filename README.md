@@ -156,3 +156,7 @@ docker build --platform="linux/amd64" -t tomiwasalau01/frontend:latest .
 docker build --platform="linux/amd64" -t tomiwasalau01/person-svc:latest .
 docker build --platform linux/amd64 -t tomiwasalau01/connection-svc:latest .
  docker build --platform="linux/amd64" -t tomiwasalau01/connection-svc:latest .
+
+ docker build --platform="linux/amd64" -t tomiwasalau01/location-grpc-producer:latest .
+
+  docker build --platform="linux/amd64" -t tomiwasalau01/location-kafka-consumer:latest .
