@@ -3,6 +3,9 @@ then the service passess the message to a kafka queue that passes it to a consum
 and writes it to the psotgres database. But for this project we have a location_grpc_producer_svc\app\client_post.py file that 
 we can run to simulate send of the location cordinate to the grpc service.
 
+Due to volume and event based nature of the location data, GRPC and KAFka was the right choice for message passing
+Particular their low latency capability of sending data across, furthermore the kafka queue is useful so the consumer can attend to the message 
+without being overwhelmed.
 
 Secondly, we split the connection and person service into their own microservices. We then have the front end call their endpoints
 via REST, then this microservice pull the required data from the database using the ORM - SQLALchemy and returns it
