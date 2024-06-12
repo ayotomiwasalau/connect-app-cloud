@@ -8,9 +8,9 @@ channel = grpc.insecure_channel("localhost:5005")
 stub = location_pb2_grpc.LocationServiceStub(channel)
 
 location = location_pb2.LocationMessage(
-    person_id=2,
-    longitude=30,
-    latitude=1000,
+    person_id=1,
+    longitude=30.6,
+    latitude=45.7,
 )
 
 response = stub.Create(location)

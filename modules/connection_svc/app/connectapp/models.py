@@ -27,7 +27,7 @@ class Location(db.Model):
     person_id = Column(Integer, ForeignKey(Person.id), nullable=False)
     coordinate = Column(Geometry("POINT"), nullable=False)
     creation_time = Column(DateTime, nullable=False, default=datetime.utcnow)
-    _wkt_shape = Column(String, nullable=True)
+    _wkt_shape = None
     
 
     @property

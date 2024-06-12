@@ -20,7 +20,7 @@ pyrsistent
 python-dateutil
 pytz
 six
-SQLAlchemy
+SQLAlchemy<2.0.0
 Werkzeug
 flask-restx
 geos
