@@ -1,0 +1,5 @@
+To use the grpc service, there is a client_post.py file we can use to simulate sending a message to the grpc service.
+
+THe file is part of the running container, we execute the python command to run the client_post.py file [location_grpc_producer_svc\app\client_post.py]
+
+kubectl exec -it <grpc pod> -- python client_post.py

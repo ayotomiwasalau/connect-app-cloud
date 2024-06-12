@@ -1,7 +1,9 @@
-We have a grpc client in the web app sending location coordinate to the location service, 
-then the service passess the message to a kafka queue that writes the data to the database
+We could have a grpc client in the web browser or mobile sending location coordinate to the location grpc service, 
+then the service passess the message to a kafka queue that passes it to a consumer, this consumer takes the data
+and writes it to the psotgres database. But for this project we have a location_grpc_producer_svc\app\client_post.py file that 
+we can run to simulate send of the location cordinate to the grpc service.
 
-We would maintain the rest framework for both person and connection services,
- they would get the data from the front end and store in the database. 
- The person and connection service are going to be combined into a single microservice because they both use rest
- and connection service is dependent on person service 
+
+Secondly, we split the connection and person service into their own microservices. We then have the front end call their endpoints
+via REST, then this microservice pull the required data from the database using the ORM - SQLALchemy and returns it
+ to the front end whcih displays it on the UI.
